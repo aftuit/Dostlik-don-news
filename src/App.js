@@ -1,24 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
-
+import {BrowserRouter, Switch, Route} from 'react-router-dom'
+import { ToastContainer } from 'react-toastify';
+import Home from './pages/Home';
+import Inform from './pages/Inform';
+import Login from './pages/Login';
+import AdminMenus from './pages/AdminMenus.jsx'
+import AdminNews from './pages/AdminNews';
+import Category from './components/Category';
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter >
+      <Switch>
+        <Route path="/" exact component={Home} />
+        <Route path="/inform" exact component={Inform} />
+        <Route path="/login" exact component={Login} />
+        <Route path="/admin/menu" exact component={AdminMenus} />
+        <Route path="/admin/news" exact component={AdminNews} />
+        <Route path="/category/:url" exact component={Category} />
+      </Switch>
+
+
+      <ToastContainer />
+    </BrowserRouter>
   );
 }
 
